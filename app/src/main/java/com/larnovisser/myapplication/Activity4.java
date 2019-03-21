@@ -13,7 +13,7 @@ public class Activity4 extends AppCompatActivity {
     private Button button8;
     private Button button9;
     private Button button10;
-    String BF = getIntent().getStringExtra("BF");
+    String data = getIntent().getStringExtra("data");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,36 +28,37 @@ public class Activity4 extends AppCompatActivity {
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity5();
+                openActivity5("1");
             }
         });
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity5();
+                openActivity5("2");
             }
         });
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity5();
+                openActivity5("3");
             }
         });
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity5();
+                openActivity5("4");
             }
         });
         button10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity5();
+                openActivity5("5");
             }
         });
     }
-    public void openActivity5(){
+    public void openActivity5(String btnvalue){
         Intent intent = new Intent(this, Activity5.class);
+        intent.putExtra("data", data+=btnvalue);
         startActivity(intent);
     }
 }

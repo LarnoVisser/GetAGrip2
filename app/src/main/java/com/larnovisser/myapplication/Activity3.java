@@ -26,7 +26,7 @@ public class Activity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Context context =getApplicationContext();
-                writeToFile("1,", context, "config.txt");
+                //writeToFile("1,", context, "config.txt");
                 openActivity4("1");
             }
         });
@@ -34,14 +34,15 @@ public class Activity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Context context =getApplicationContext();
-                writeToFile("0,", context, "config.txt");
+                //writeToFile("0,", context, "config.txt");
                 openActivity4("0");
             }
         });
     }
     public void openActivity4(String btnvalue){
         Intent intent = new Intent(this, Activity4.class);
-        intent.putExtra("BF", btnvalue);
+        intent.putExtra("data", btnvalue);
+        intent.
         startActivity(intent);
     }
     private void writeToFile(String data, Context context, String fileName) {
