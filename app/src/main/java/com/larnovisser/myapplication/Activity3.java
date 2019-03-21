@@ -15,7 +15,7 @@ public class Activity3 extends AppCompatActivity {
 
     private Button button4;//yes
     private Button button5;//no
-    private String data = "";
+    public String data = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
