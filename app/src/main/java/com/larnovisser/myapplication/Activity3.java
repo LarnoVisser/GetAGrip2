@@ -15,7 +15,7 @@ public class Activity3 extends AppCompatActivity {
 
     private Button button4;//yes
     private Button button5;//no
-    public String data = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +26,7 @@ public class Activity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Context context =getApplicationContext();
-                writeToFile(button4.getText().toString(), context, "config.txt");
-                data += "1";
+                writeToFile("1,", context, "config.txt");
                 openActivity4();
             }
         });
@@ -35,8 +34,7 @@ public class Activity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Context context =getApplicationContext();
-                writeToFile(button5.getText().toString(), context, "config.txt");
-                data += "0";
+                writeToFile("0,", context, "config.txt");
                 openActivity4();
             }
         });
