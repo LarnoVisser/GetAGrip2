@@ -13,6 +13,7 @@ public class Activity4 extends AppCompatActivity {
     private Button button8;
     private Button button9;
     private Button button10;
+    String BF = getIntent().getStringExtra("BF");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

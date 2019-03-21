@@ -27,7 +27,7 @@ public class Activity3 extends AppCompatActivity {
             public void onClick(View v) {
                 Context context =getApplicationContext();
                 writeToFile("1,", context, "config.txt");
-                openActivity4();
+                openActivity4("1");
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
@@ -35,12 +35,13 @@ public class Activity3 extends AppCompatActivity {
             public void onClick(View v) {
                 Context context =getApplicationContext();
                 writeToFile("0,", context, "config.txt");
-                openActivity4();
+                openActivity4("0");
             }
         });
     }
-    public void openActivity4(){
+    public void openActivity4(String btnvalue){
         Intent intent = new Intent(this, Activity4.class);
+        intent.putExtra("BF", btnvalue);
         startActivity(intent);
     }
     private void writeToFile(String data, Context context, String fileName) {
