@@ -20,31 +20,32 @@ public class Activity3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
+        final String dato = getIntent().getStringExtra("Dato");
         button4 = (Button) findViewById(R.id.button4);
         button5 = (Button) findViewById(R.id.button5);
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context context =getApplicationContext();
-                writeToFile("1,", context, "config.txt");
-                openActivity4("1");
+//                Context context =getApplicationContext();
+//                writeToFile("1,", context, "config.txt");
+                openActivity4(dato+"1,");
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context context =getApplicationContext();
-                writeToFile("0,", context, "config.txt");
-                openActivity4("0");
+//                Context context =getApplicationContext();
+//                writeToFile("0,", context, "config.txt");
+                openActivity4(dato+"0,");
             }
         });
     }
     public void openActivity4(String btnvalue){
         Intent intent = new Intent(this, Activity4.class);
-        intent.putExtra("BF", btnvalue);
+        intent.putExtra("Data", btnvalue);
         startActivity(intent);
     }
-    private void writeToFile(String data, Context context, String fileName) {
+/*   private void writeToFile(String data, Context context, String fileName) {
         try {
             data +="\n"; //add a new line character to incoming data
             //the command below will also create a new file
@@ -56,5 +57,5 @@ public class Activity3 extends AppCompatActivity {
         catch (IOException e) {
             Log.e("Exception", "File write failed: " + e.toString());//log Error
         }
-    }
+    }*/
 }

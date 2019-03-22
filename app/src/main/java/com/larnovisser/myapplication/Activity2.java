@@ -22,24 +22,25 @@ public class Activity2 extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity3();
+                openActivity3("1,");
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity3();
+                openActivity3("2,");
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity3();
+                openActivity3("3,");
             }
         });
     }
-    public  void openActivity3(){
+    public  void openActivity3(String btnvalue){
         Intent intent = new Intent(this, Activity3.class);
+        intent.putExtra("Dato", btnvalue);
         startActivity(intent);
     }
 }
