@@ -2,15 +2,16 @@ package com.larnovisser.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Activity5 extends AppCompatActivity {
 
@@ -20,7 +21,10 @@ public class Activity5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_5);
-        final String dato = getIntent().getStringExtra("Data");
+        SimpleDateFormat timeStampFormat = new SimpleDateFormat("dd-MM HH:mm");
+        Date dt = new Date();
+        final String dato = getIntent().getStringExtra("Data")+ timeStampFormat.format(dt);
+
         TextView Home=(TextView) findViewById(R.id.home);
         Home.setOnClickListener(new View.OnClickListener() {
             @Override
