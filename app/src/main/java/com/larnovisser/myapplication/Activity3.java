@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.Random;
 
 public class Activity3 extends AppCompatActivity {
 
@@ -26,36 +27,38 @@ public class Activity3 extends AppCompatActivity {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Context context =getApplicationContext();
-//                writeToFile("1,", context, "config.txt");
-                openActivity4(dato+"1,");
+                Random random = new Random();
+                int num = random.nextInt(2);
+                if (num == 0) {
+                    openActivity4(dato + "1,-1,");
+                }
+                else if (num == 1) {
+                    openActivityFeel(dato + "1,");
+                }
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Context context =getApplicationContext();
-//                writeToFile("0,", context, "config.txt");
-                openActivity4(dato+"0,");
+                Random random = new Random();
+                int num = random.nextInt(2);
+                if (num == 0) {
+                    openActivity4(dato + "0,-1,");
+                }
+                else if (num == 1) {
+                    openActivityFeel(dato + "0,");
+                }
             }
         });
+    }
+    public void openActivityFeel(String btnvalue){
+        Intent i = new Intent(this, ActivityFeel.class);
+        i.putExtra("Data", btnvalue);
+        startActivity(i);
     }
     public void openActivity4(String btnvalue){
         Intent intent = new Intent(this, Activity4.class);
         intent.putExtra("Data", btnvalue);
         startActivity(intent);
     }
-/*   private void writeToFile(String data, Context context, String fileName) {
-        try {
-            data +="\n"; //add a new line character to incoming data
-            //the command below will also create a new file
-            OutputStreamWriter outputStreamWriter =new OutputStreamWriter(context.openFileOutput(fileName, Context.MODE_APPEND));
-            outputStreamWriter.append(data);//instead of deleting all previous data we will add to the existing ones (append)
-            outputStreamWriter.close();
-            Log.v("Success", "Successfully written to file: "+data); //log Verbose
-        }
-        catch (IOException e) {
-            Log.e("Exception", "File write failed: " + e.toString());//log Error
-        }
-    }*/
 }
