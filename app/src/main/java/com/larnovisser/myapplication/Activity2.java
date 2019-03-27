@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Random;
+
 public class Activity2 extends AppCompatActivity {
     private Button button1;
     private Button button2;
@@ -22,25 +24,26 @@ public class Activity2 extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity3("1,");
-            }
+                    openActivityEx("1,");
+                }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity3("2,");
-            }
+                    openActivityEx("2,");
+                }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity3("3,");
-            }
+                    openActivityEx("3,");
+                }
         });
     }
-    public  void openActivity3(String btnvalue){
-        Intent intent = new Intent(this, Activity3.class);
-        intent.putExtra("Dato", btnvalue);
-        startActivity(intent);
+
+    public void openActivityEx(String btnvalue){
+        Intent i = new Intent(this, ActivityEx.class);
+        i.putExtra("Dato", btnvalue);
+        startActivity(i);
     }
 }
