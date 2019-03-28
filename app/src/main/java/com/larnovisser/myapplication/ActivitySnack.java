@@ -16,7 +16,7 @@ public class ActivitySnack extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_snack);
-        final String dato = getIntent().getStringExtra("Dato");
+        final String dato = getIntent().getStringExtra("Data");
         button13 = (Button) findViewById(R.id.button13);
         button14 = (Button) findViewById(R.id.button14);
         button13.setOnClickListener(new View.OnClickListener() {

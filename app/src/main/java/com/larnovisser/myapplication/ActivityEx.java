@@ -65,6 +65,7 @@ public class ActivityEx extends AppCompatActivity {
         });
 
     }
+
     public  void openActivity3(String btnvalue){
         Intent i = new Intent(this, Activity3.class);
         i.putExtra("Data", btnvalue);

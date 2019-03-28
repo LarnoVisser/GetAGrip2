@@ -21,7 +21,7 @@ public class Activity3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
-        final String dato = getIntent().getStringExtra("Dato");
+        final String dato = getIntent().getStringExtra("Data");
         button4 = (Button) findViewById(R.id.button4);
         button5 = (Button) findViewById(R.id.button5);
         button4.setOnClickListener(new View.OnClickListener() {
