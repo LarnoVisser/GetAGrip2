@@ -1,11 +1,12 @@
 package com.larnovisser.myapplication;
 
 import android.content.Intent;
-import android.os.Binder;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.Random;
 
 public class ActivityEx extends AppCompatActivity {
 
@@ -25,27 +26,54 @@ public class ActivityEx extends AppCompatActivity {
         ex1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity3(data + "1,");
+                Random random = new Random();
+                int num = random.nextInt(2);
+                if (num == 0) {
+                    openActivity3(data + "1,-1,");
+                }
+                else if (num == 1) {
+                    openActivitySnack(data + "1,");
+                }
             }
         });
         ex2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity3(data + "2,");
+                Random random = new Random();
+                int num = random.nextInt(2);
+                if (num == 0) {
+                    openActivity3(data + "2,-1,");
+                }
+                else if (num == 1) {
+                    openActivitySnack(data + "2,");
+                }
+                //openActivity3(data + "2,");
             }
         });
         ex3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity3(data + "3,");
+                Random random = new Random();
+                int num = random.nextInt(1);
+                if (num == 1) {
+                    openActivity3(data + "3,-1,");
+                }
+                else if (num == 0) {
+                    openActivitySnack(data + "3,");
+                }
             }
         });
 
-
     }
     public  void openActivity3(String btnvalue){
-        Intent intent = new Intent(this, Activity3.class);
-        intent.putExtra("Dato", btnvalue);
+        Intent i = new Intent(this, Activity3.class);
+        i.putExtra("Data", btnvalue);
+        startActivity(i);
+    }
+
+    public void openActivitySnack(String btnvalue){
+        Intent intent = new Intent ( this, ActivitySnack.class);
+        intent.putExtra("Data", btnvalue);
         startActivity(intent);
     }
 }
