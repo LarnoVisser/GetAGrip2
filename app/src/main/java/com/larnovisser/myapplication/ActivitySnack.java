@@ -25,10 +25,10 @@ public class ActivitySnack extends AppCompatActivity {
                 Random random = new Random();
                 int num = random.nextInt(2);
                 if (num == 0) {
-                    openActivity4(dato + "1,-1,");
+                    openActivity4(dato + "1,-1,-1,");
                 }
                 else if (num == 1) {
-                    openActivityFeel(dato + "1,");
+                    openActivityFeel(dato + "1,-1,");
                 }
             }
         });
@@ -38,10 +38,10 @@ public class ActivitySnack extends AppCompatActivity {
                 Random random = new Random();
                 int num = random.nextInt(2);
                 if (num == 0) {
-                    openActivity4(dato + "0,-1,");
+                    openActivity4(dato + "0,-1,-1,");
                 }
                 else if (num == 1) {
-                    openActivityFeel(dato + "0,");
+                    openActivityFeel(dato + "0,-1,");
                 }
             }
         });
