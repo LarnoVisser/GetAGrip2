@@ -54,11 +54,11 @@ public class ActivityEx extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Random random = new Random();
-                int num = random.nextInt(1);
-                if (num == 1) {
+                int num = random.nextInt(2);
+                if (num == 0) {
                     openActivity3(data + "3,-1,");
                 }
-                else if (num == 0) {
+                else if (num == 1) {
                     openActivitySnack(data + "3,");
                 }
             }
