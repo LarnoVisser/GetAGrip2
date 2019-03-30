@@ -42,6 +42,7 @@ public class Activity5 extends AppCompatActivity {
     private void writeToFile(String data, Context context, String fileName) {
         try {
             data +="\n"; //add a new line character to incoming data
+            //cvs: sleep, ex, snack, breakfast, feel, energy
             //the command below will also create a new file
             OutputStreamWriter outputStreamWriter =new OutputStreamWriter(context.openFileOutput(fileName, Context.MODE_APPEND));
             outputStreamWriter.append(data);//instead of deleting all previous data we will add to the existing ones (append)
