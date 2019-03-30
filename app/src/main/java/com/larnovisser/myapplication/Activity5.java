@@ -33,7 +33,7 @@ public class Activity5 extends AppCompatActivity {
             }
         });
         Context context =getApplicationContext();
-        writeToFile(dato, context, "config.txt");
+        writeToFile(dato, context, "config2.txt");
     }
     public void openActivity6(){
         Intent intent = new Intent(this, HomeAct.class);

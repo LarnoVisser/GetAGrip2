@@ -7,4 +7,17 @@
     android:background="@drawable/bgndac2"
     tools:context=".HomeAct">
 
+    <TextView
+        android:id="@+id/tvLog"
+        android:layout_width="229dp"
+        android:layout_height="211dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:inputType="textMultiLine"
+        android:text="Log Window"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.357" />
 </android.support.constraint.ConstraintLayout>
