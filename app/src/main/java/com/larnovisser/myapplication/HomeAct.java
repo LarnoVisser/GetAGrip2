@@ -22,8 +22,10 @@ public class HomeAct extends AppCompatActivity {
         final TextView tvLog =findViewById(R.id.tvLog);
         Context context = getApplicationContext();
         String fileData =readFromFile(context, "config2.txt");
+        //Here we need to put fileData in an array, separated by comma, and then transform that array such that it is useful
+        String[] test = fileData.split(",");
         tvLog.setText("");
-        tvLog.setText(fileData);
+        tvLog.setText(test[-1].toString());
     }
 
     private String readFromFile(Context context, String fileName) {
