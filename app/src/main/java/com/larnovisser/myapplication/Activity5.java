@@ -23,7 +23,7 @@ public class Activity5 extends AppCompatActivity {
         setContentView(R.layout.activity_5);
         SimpleDateFormat timeStampFormat = new SimpleDateFormat("dd-MM");
         Date dt = new Date();
-        final String dato = getIntent().getStringExtra("Data")+ timeStampFormat.format(dt);
+        final String dato = getIntent().getStringExtra("Data")+ timeStampFormat.format(dt)+",";
 
         TextView Home=(TextView) findViewById(R.id.home);
         Home.setOnClickListener(new View.OnClickListener() {
@@ -33,7 +33,7 @@ public class Activity5 extends AppCompatActivity {
             }
         });
         Context context =getApplicationContext();
-        writeToFile(dato, context, "config2.txt");
+        writeToFile(dato, context, "config3.txt");
     }
     public void openActivity6(){
         Intent intent = new Intent(this, HomeAct.class);
