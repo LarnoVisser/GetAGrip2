@@ -21,7 +21,7 @@ public class Activity5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_5);
-        SimpleDateFormat timeStampFormat = new SimpleDateFormat("dd-MM");
+        SimpleDateFormat timeStampFormat = new SimpleDateFormat("dd-MM,");
         Date dt = new Date();
         final String dato = getIntent().getStringExtra("Data")+ timeStampFormat.format(dt)+",";
 
