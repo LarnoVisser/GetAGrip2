@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,12 +17,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class HomeAct extends AppCompatActivity {
-//    int dates;
+    LineGraphSeries<DataPoint> series;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home2);
-
+        double x,y;
+        GraphView graph = (GraphView) findViewById(R.id.graph);
         final TextView tvLog =findViewById(R.id.tvLog);
         final TextView tvLog2 =findViewById(R.id.tvLog2);
         Context context = getApplicationContext();
@@ -44,6 +49,11 @@ public class HomeAct extends AppCompatActivity {
                 tvLog2.append(test[i]+"            "+test[i+5]);
             }
 //            System.out.println(test);
+        series = new LineGraphSeries<DataPoint>();
+        for (int j=0; j<test.length-7;j=j+7){
+            series.appendData(new DataPoint(Integer.parseInt(test[j]),Integer.parseInt(test[j+6])),true,30);
+        }
+        graph.addSeries(series);
         }
 
 
