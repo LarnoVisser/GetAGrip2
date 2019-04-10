@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,22 +17,45 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class HomeAct extends AppCompatActivity {
-
+    LineGraphSeries<DataPoint> series;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home2);
-
+        double x,y;
+        GraphView graph = (GraphView) findViewById(R.id.graph);
         final TextView tvLog =findViewById(R.id.tvLog);
+        final TextView tvLog2 =findViewById(R.id.tvLog2);
         Context context = getApplicationContext();
-        String fileData =readFromFile(context, "config2.txt");
+        String fileData =readFromFile(context, "config3.txt");
         //Here we need to put fileData in an array, separated by comma, and then transform that array such that it is useful
-        String[] test = fileData.split(",");
-        tvLog.setText("");
-        //tvLog.setText(test[6]);
-        //tvLog.setText("");
-        //tvLog.setText(test[0]);
-    }
+        String test[] = fileData.split(",");
+//        for (int counter=0;counter<test.length;counter = counter +7){
+//            counter = counter+1;
+//            if(counter%7 == 0){
+//                counter = dates;
+//                tvLog.setText("");
+//                tvLog.setText(test[dates]);
+//            }
+            tvLog.setText("");
+            tvLog2.setText("");
+//            tvLog.setText(fileData);"\
+            tvLog.append("Date:" + "\n");
+            for (int i=6;i<test.length;i=i+7) {
+                tvLog.append(test[i]+ "\n");
+            }
+            tvLog2.append("Sleep:"+ "  "+ "Energy:" +"\n");
+            for (int i=0;i<test.length-7;i=i+7) {
+                tvLog2.append(test[i]+"            "+test[i+5]);
+            }
+//            System.out.println(test);
+        series = new LineGraphSeries<DataPoint>();
+        for (int j=0; j<test.length-7;j=j+7){
+            series.appendData(new DataPoint(Integer.parseInt(test[j]),Integer.parseInt(test[j+6])),true,30);
+        }
+        graph.addSeries(series);
+        }
+
 
     private String readFromFile(Context context, String fileName) {
         String ret = "";
@@ -44,6 +71,7 @@ public class HomeAct extends AppCompatActivity {
                 while ( (receiveString = bufferedReader.readLine()) != null ) {
                     Log.v("check", "file data: " + receiveString);
                     stringBuilder.append(receiveString + "\n");
+//                    String test2[] = receiveString;
                 }
                 inputStream.close();
                 ret = stringBuilder.toString();
