@@ -49,9 +49,13 @@ public class HomeAct extends AppCompatActivity {
                 tvLog2.append(test[i]+"            "+test[i+5]);
             }
 //            System.out.println(test);
+        x=0;
         series = new LineGraphSeries<DataPoint>();
         for (int j=0; j<test.length-7;j=j+7){
-            series.appendData(new DataPoint(Integer.parseInt(test[j]),Integer.parseInt(test[j+6])),true,30);
+            x = x+1;
+            y = x/2;
+
+            series.appendData(new DataPoint(y,x),true,30);
         }
         graph.addSeries(series);
         }
